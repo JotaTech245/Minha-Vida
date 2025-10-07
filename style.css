@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: radial-gradient(circle at top left, #ff4e88, #ff6b6b, #ff4e88);
+    color: white;
+    overflow-x: hidden;
+    height: 200vh; /* duas "telas" de altura */
+    position: relative;
+  }
+  
+  /* TELA INICIAL */
+  .intro-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4e88, #ff6b6b);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #startButton {
+    background: white;
+    color: #ff4e88;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 2;
+    position: relative;
+  }
+  
+  #startButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* CONTEÚDO PRINCIPAL */
+  main {
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 1.5s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .timer {
+    font-size: 1.5rem;
+    color: #ffb3c6;
+    margin-bottom: 40px;
+  }
+  
+  .carousel {
+    margin: 20px 0;
+  }
+  
+  /* 📱 Imagens maiores e responsivas */
+  .carousel-container {
+    position: relative;
+    width: 90%;             /* ocupa 90% da largura da tela */
+    max-width: 400px;       /* limite máximo no desktop */
+    aspect-ratio: 3/4;      /* mantém proporção vertical bonita */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(255, 100, 130, 0.6);
+  }
+  
+  .carousel-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* cobre o espaço sem distorcer */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+    border-radius: 25px;
+  }
+  
+  .carousel-container img.active {
+    opacity: 1;
+  }
+  
+  /* --- SEGUNDA TELA (TEXTO CENTRALIZADO) --- */
+  .message {
+    height: 100vh; /* ocupa a segunda tela inteira */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #ffd6e0;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  /* EFEITO DE APARECIMENTO SUAVE */
+  .message.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ANIMAÇÃO DE CORAÇÕES */
+  .hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    opacity: 0;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(0.5);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* --- AJUSTE PARA CELULAR --- */
+  @media (max-width: 480px) {
+    .carousel-container {
+      width: 95%;
+      aspect-ratio: 3/4; /* mantém visual mais alto e bonito */
+      max-width: none;
+    }
+  
+    h1 {
+      font-size: 1.6rem;
+    }
+  
+    .timer {
+      font-size: 1.2rem;
+    }
+  
+    .message {
+      font-size: 1.05rem;
+      padding: 0 15px;
+    }
+  }
+  
