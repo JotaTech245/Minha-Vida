@@ -97,7 +97,7 @@ h1 {
 }
 
 .message {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,11 +108,12 @@ h1 {
     max-width: 700px;
     margin: 0 auto;
     color: #ffd6e0;
-    padding: 0 20px;
+    padding: 100px 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
 }
+
 
 .message.visible {
     opacity: 1;
