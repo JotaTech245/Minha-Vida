@@ -9,11 +9,10 @@ body {
     background: radial-gradient(circle at top left, #ff4e88, #ff6b6b, #ff4e88);
     color: white;
     overflow-x: hidden;
-    height: 200vh; /* duas "telas" de altura */
+    height: 200vh;
     position: relative;
 }
 
-/* TELA INICIAL */
 .intro-screen {
     display: flex;
     justify-content: center;
@@ -46,13 +45,13 @@ body {
     display: none;
 }
 
-/* CONTEÚDO PRINCIPAL */
 main {
     text-align: center;
     padding: 30px;
     animation: fadeIn 1.5s ease forwards;
     position: relative;
     overflow: hidden;
+    padding-top: 130px;
 }
 
 h1 {
@@ -70,7 +69,6 @@ h1 {
     margin: 20px 0;
 }
 
-/* 📱 Imagens maiores e responsivas */
 .carousel-container {
     position: relative;
     width: 90%;
@@ -98,7 +96,6 @@ h1 {
     opacity: 1;
 }
 
-/* --- SEGUNDA TELA (TEXTO CENTRALIZADO) --- */
 .message {
     height: 100vh;
     display: flex;
@@ -122,7 +119,6 @@ h1 {
     transform: translateY(0);
 }
 
-/* ANIMAÇÃO DE CORAÇÕES */
 .hearts-bg {
     position: fixed;
     top: 0;
@@ -153,20 +149,79 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Música local oculto */
 .music audio {
     display: none;
 }
 
-/* --- AJUSTE PARA CELULAR --- */
+.music-card {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 360px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 10px 15px;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+.music-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.music-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 12px;
+}
+
+.music-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.music-artist {
+    font-size: 0.85rem;
+    color: #ffd6e0;
+    margin-top: 3px;
+}
+
+#playPauseBtn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#playPauseBtn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
 @media (max-width: 480px) {
-    .carousel-container {
+    .music-card {
         width: 95%;
-        aspect-ratio: 3/4;
         max-width: none;
+        top: 10px;
     }
 
-    h1 { font-size: 1.6rem; }
+    h1 { font-size: 1.6rem; margin-top: 50px; }
     .timer { font-size: 1.2rem; }
     .message { font-size: 1.05rem; padding: 0 15px; }
 }
